@@ -14,6 +14,7 @@ import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 
 /**
@@ -24,6 +25,7 @@ public class MonthFragment extends Fragment {
 
     private BarChart mUiBarChart;
     private View mView;
+    Random random = new Random();
 
     public MonthFragment() {
         // Required empty public constructor
@@ -51,25 +53,16 @@ public class MonthFragment extends Fragment {
         mUiBarChart = (BarChart) mView.findViewById(R.id.month_bar_chart);
 
         ArrayList<BarEntry> entries = new ArrayList<>();
-        entries.add(new BarEntry(4f, 0));
-        entries.add(new BarEntry(8f, 1));
-        entries.add(new BarEntry(6f, 2));
-        entries.add(new BarEntry(12f, 3));
-        entries.add(new BarEntry(18f, 4));
-        entries.add(new BarEntry(9f, 5));
-
-        BarDataSet barDataSet = new BarDataSet(entries, "Прочитав сторінок за місяць");
-        barDataSet.setColors(ColorTemplate.JOYFUL_COLORS);
-
-        // Defining the X-Axis Labels
         ArrayList<String> labels = new ArrayList<String>();
-        labels.add("January");
-        labels.add("February");
-        labels.add("March");
-        labels.add("April");
-        labels.add("May");
-        labels.add("June");
-//        labels.add("NoData");
+        for (int i = 0; i <= 30; i++) {
+            int pagesCount = random.nextInt(50);
+            entries.add(new BarEntry(pagesCount, i));
+
+            // Defining the X-Axis Labels
+            labels.add(String.valueOf(i+1));
+        }
+        BarDataSet barDataSet = new BarDataSet(entries, "Прочитав сторінок за день");
+        barDataSet.setColors(ColorTemplate.LIBERTY_COLORS);
 
         BarData barData = new BarData(labels, barDataSet);
         mUiBarChart.setData(barData);

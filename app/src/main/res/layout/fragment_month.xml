@@ -2,6 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="88dp"
+
     tools:context="tieorange.com.productivereader.MonthFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -9,6 +11,7 @@
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/month_bar_chart"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:clickable="false" />
 
 </FrameLayout>

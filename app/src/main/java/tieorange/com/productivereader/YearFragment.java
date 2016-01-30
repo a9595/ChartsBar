@@ -15,6 +15,7 @@ import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 
 /**
@@ -40,6 +41,7 @@ public class YearFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
     private View mView;
+    private Random mRandom = new Random();
 
     public YearFragment() {
         // Required empty public constructor
@@ -88,30 +90,36 @@ public class YearFragment extends Fragment {
         mUiBarChart = (BarChart) mView.findViewById(R.id.year_bar_chart);
 
         ArrayList<BarEntry> entries = new ArrayList<>();
-        entries.add(new BarEntry(4f, 0));
-        entries.add(new BarEntry(8f, 1));
-        entries.add(new BarEntry(6f, 2));
-        entries.add(new BarEntry(12f, 3));
-        entries.add(new BarEntry(18f, 4));
-        entries.add(new BarEntry(9f, 5));
+        ArrayList<String> labels = new ArrayList<String>();
+        for (int i = 0; i < 12; i++) {
+            int pagesCount = mRandom.nextInt(200 - 20) + 20;
+            entries.add(new BarEntry(pagesCount, i));
+        }
 
         BarDataSet barDataSet = new BarDataSet(entries, "Прочитав сторінок за місяць");
         barDataSet.setColors(ColorTemplate.JOYFUL_COLORS);
 
         // Defining the X-Axis Labels
-        ArrayList<String> labels = new ArrayList<String>();
         labels.add("January");
         labels.add("February");
         labels.add("March");
         labels.add("April");
         labels.add("May");
         labels.add("June");
+        labels.add("July");
+        labels.add("August");
+        labels.add("September");
+        labels.add("October");
+        labels.add("November");
+        labels.add("December");
+
 //        labels.add("NoData");
 
         BarData barData = new BarData(labels, barDataSet);
         mUiBarChart.setData(barData);
-        mUiBarChart.setDescription("Скільки ти читаєш за місяць?");
+        mUiBarChart.setDescription("Скільки ти читаєш за рік?");
         mUiBarChart.animateXY(5000, 5000);
+        mUiBarChart.setClickable(false);
 
 
         mUiBarChart.invalidate(); // refresh
@@ -146,7 +154,7 @@ public class YearFragment extends Fragment {
      * fragment to allow an interaction in this fragment to be communicated
      * to the activity and potentially other fragments contained in that
      * activity.
-     * <p/>
+     * <p>
      * See the Android Training lesson <a href=
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
