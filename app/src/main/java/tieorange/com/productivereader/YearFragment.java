@@ -33,8 +33,8 @@ public class YearFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    @Bind(R.id.bar_chart)
-    BarChart mUiBarChart;
+//    @Bind(R.id.bar_chart)
+//    BarChart mUiBarChart;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -77,43 +77,43 @@ public class YearFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        setupBarChart();
+        //setupBarChart();
 
 
         return inflater.inflate(R.layout.fragment_year, container, false);
     }
 
-    private void setupBarChart() {
-        // create dataset:
-        ArrayList<BarEntry> entries = new ArrayList<>();
-        entries.add(new BarEntry(4f, 0));
-        entries.add(new BarEntry(8f, 1));
-        entries.add(new BarEntry(6f, 2));
-        entries.add(new BarEntry(12f, 3));
-        entries.add(new BarEntry(18f, 4));
-        entries.add(new BarEntry(9f, 5));
-
-        BarDataSet barDataSet = new BarDataSet(entries, "Прочитав сторінок за місяць");
-        barDataSet.setColors(ColorTemplate.JOYFUL_COLORS);
-
-        // Defining the X-Axis Labels
-        ArrayList<String> labels = new ArrayList<String>();
-        labels.add("January");
-        labels.add("February");
-        labels.add("March");
-        labels.add("April");
-        labels.add("May");
-        labels.add("June");
-//        labels.add("NoData");
-
-        BarData barData = new BarData(labels, barDataSet);
-        mUiBarChart.setData(barData);
-        mUiBarChart.setDescription("Скільки ти читаєш за місяць?");
-        mUiBarChart.animateXY(5000, 5000);
-
-
-        mUiBarChart.invalidate(); // refresh
-    }
+//    private void setupBarChart() {
+//        // create dataset:
+//        ArrayList<BarEntry> entries = new ArrayList<>();
+//        entries.add(new BarEntry(4f, 0));
+//        entries.add(new BarEntry(8f, 1));
+//        entries.add(new BarEntry(6f, 2));
+//        entries.add(new BarEntry(12f, 3));
+//        entries.add(new BarEntry(18f, 4));
+//        entries.add(new BarEntry(9f, 5));
+//
+//        BarDataSet barDataSet = new BarDataSet(entries, "Прочитав сторінок за місяць");
+//        barDataSet.setColors(ColorTemplate.JOYFUL_COLORS);
+//
+//        // Defining the X-Axis Labels
+//        ArrayList<String> labels = new ArrayList<String>();
+//        labels.add("January");
+//        labels.add("February");
+//        labels.add("March");
+//        labels.add("April");
+//        labels.add("May");
+//        labels.add("June");
+////        labels.add("NoData");
+//
+//        BarData barData = new BarData(labels, barDataSet);
+//        mUiBarChart.setData(barData);
+//        mUiBarChart.setDescription("Скільки ти читаєш за місяць?");
+//        mUiBarChart.animateXY(5000, 5000);
+//
+//
+//        mUiBarChart.invalidate(); // refresh
+//    }
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
