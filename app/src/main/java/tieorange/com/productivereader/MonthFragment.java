@@ -54,7 +54,7 @@ public class MonthFragment extends Fragment {
 
         ArrayList<BarEntry> entries = new ArrayList<>();
         ArrayList<String> labels = new ArrayList<String>();
-        for (int i = 0; i <= 30; i++) {
+        for (int i = 0; i < 30; i++) {
             int pagesCount = random.nextInt(50);
             entries.add(new BarEntry(pagesCount, i));
 
